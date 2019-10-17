@@ -7,5 +7,4 @@ public class Estudiante {
     private Persona persona;
     private List<Asignatura> asignaturas;
 
-
 }

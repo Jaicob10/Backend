@@ -15,11 +15,11 @@ public class PersonaController {
     private PersonaService personaService;
 
     @GetMapping("/{id}/persona")
-    public Persona findById(@PathVariable(value = "id", required = true) Long id){
+    public PersonaEntity findById(@PathVariable(value = "id", required = true) Long id){
         return personaService.findById(id);
     }
     @GetMapping("/personas")
-    public List<Persona> findAll(){
+    public List<PersonaEntity> findAll(){
         return personaService.findAll();
     }
 
@@ -29,8 +29,8 @@ public class PersonaController {
     }
 
     @PostMapping("/persona")
-    public void insert(@RequestBody Persona persona){
-        personaService.save(persona);
+    public void insert(@RequestBody PersonaEntity personaEntity){
+        personaService.save(personaEntity);
     }
 
     @PutMapping("/{id}/persona")

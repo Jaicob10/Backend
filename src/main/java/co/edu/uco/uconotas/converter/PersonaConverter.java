@@ -10,42 +10,40 @@ import java.util.Optional;
 
 @Component
 public class PersonaConverter {
-
-
-    public Persona entityToModel(PersonaEntity personaEntity) {
+    public Persona entityToModel(PersonaEntity personaEntity){
         var persona = new Persona();
         persona.setId(personaEntity.getId());
-        persona.setNombre(personaEntity.getNombre());
-        persona.setApellido(personaEntity.getApellido());
+        persona.setNombre(persona.getNombre());
+        persona.setApellido(persona.getApellido());
+
         return persona;
     }
 
-
-    public PersonaEntity modelToEntity(Persona persona) {
+    public PersonaEntity modelToEntity(Persona persona){
         var personaEntity = new PersonaEntity();
+
         personaEntity.setId(persona.getId());
         personaEntity.setNombre(persona.getNombre());
         personaEntity.setApellido(persona.getApellido());
         return personaEntity;
-    }
 
-    public List<Persona> entityToModel(List<PersonaEntity> personasEntity) {
+    }
+    public List<Persona> entityToModel(List<PersonaEntity> personasEntity){
         List<Persona> personas = new ArrayList<>(personasEntity.size());
+
+        /*for(int i = 0; i< personas.size(); i++){
+            personas.add(entityToModel(personasEntity.get(i)));
+        }
+
+        for(PersonaEntity persona: personasEntity){
+            personas.add(entityToModel(persona));
+        }*/
+
         personasEntity.forEach(entity -> {
             personas.add(entityToModel(entity));
         });
         return personas;
     }
 
-    public Persona entityToModel(Optional<PersonaEntity> personaEntity) {
-        Persona persona = null;
-        if (personaEntity.isPresent()) {
-            persona = new Persona();
-            persona.setId(personaEntity.get().getId());
-            persona.setNombre(personaEntity.get().getNombre());
-            persona.setApellido(personaEntity.get().getApellido());
-            return persona;
-        }
-        return persona;
-    }
+
 }

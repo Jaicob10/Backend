@@ -8,13 +8,13 @@ import java.util.List;
 public interface PersonaService {
 
 
-    Persona findById(Long id);
+    PersonaEntity findById(Long id);
 
-    List<Persona> findAll();
+    List<PersonaEntity> findAll();
 
     void deleteById(Long id);
 
-    void save(Persona personaEntity);
+    void save(PersonaEntity personaEntity);
 
 
 
